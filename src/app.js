@@ -9,22 +9,17 @@ app.use(cors());
 app.use(express.json());
 
 // Import Routes
-const userRoutes = require('./routes/user');
-const movieRoutes = require('./routes/movie');
-const bookingRoutes = require('./routes/booking');
+const routes = require('./routes');
 
 // Use Routes
-app.use('/api/user', userRoutes);
-app.use('/api/movie', movieRoutes);
-app.use('/api/booking', bookingRoutes);
+app.use('/api', routes);
 
 // Test Route
 app.get('/', (req, res) => {
-  res.json({ message: 'API Bioskop Running!' });
+  res.json({ 
+    message: 'API Bioskop Running!',
+    version: '1.0.0'
+  });
 });
 
-// Start Server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+module.exports = app;
