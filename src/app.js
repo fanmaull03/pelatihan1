@@ -9,9 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 // Import Routes
-const userRoutes = require('./src/routes/user');
-const movieRoutes = require('./src/routes/movie');
-const bookingRoutes = require('./src/routes/booking');
+const userRoutes = require('./routes/user');
+const movieRoutes = require('./routes/movie');
+const bookingRoutes = require('./routes/booking');
 
 // Use Routes
 app.use('/api/user', userRoutes);
